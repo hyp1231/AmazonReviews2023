@@ -1,12 +1,12 @@
 # Amazon Reviews 2023
 
-[[🌐 Website](https://amazon-reviews-2023.github.io/)] · [[🤗 Huggingface Datasets](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023)] · [[📑 Paper]()] · [[🔬 McAuley Lab](https://cseweb.ucsd.edu/~jmcauley/)]
+[[🌐 Website](https://amazon-reviews-2023.github.io/)] · [[🤗 Huggingface Datasets](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023)] · [[📑 Paper](https://arxiv.org/abs/2403.03952)] · [[🔬 McAuley Lab](https://cseweb.ucsd.edu/~jmcauley/)]
 
 ---
 
 This repository contains:
 * Scripts for processing [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) dataset into recommendation benchmarks;
-* Checkpoints & implementations for BLaIR: "[Bridging Language and Items for Retrieval and Recommendation]()";
+* Checkpoints & implementations for BLaIR: "[Bridging Language and Items for Retrieval and Recommendation](https://arxiv.org/abs/2403.03952)";
 * Scripts for constructing Amazon-C4, a new dataset for evaluating product search performance under complex contexts.
 
 ## Recommendation Benchmarks
@@ -55,7 +55,7 @@ If you find Amazon Reviews 2023 dataset, BLaIR checkpoints, Amazon-C4 dataset, o
 @article{hou2024bridging,
   title={Bridging Language and Items for Retrieval and Recommendation},
   author={Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  journal={arXiv preprint arXiv:2403.03952},
   year={2024}
 }
 ```
