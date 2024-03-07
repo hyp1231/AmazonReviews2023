@@ -1,19 +1,23 @@
-# Amazon Review 2023
+# Amazon Reviews 2023
+
+[[🌐 Website](https://amazon-reviews-2023.github.io/)] · [[🤗 Huggingface Datasets](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023)] · [[📑 Paper]()] · [[🔬 McAuley Lab](https://cseweb.ucsd.edu/~jmcauley/)]
+
+---
 
 This repository contains:
-* Scripts for processing Amazon Review 2023 dataset into recommendation benchmarks;
-* Checkpoints & implementations for BLaIR: "Bridging Language and Items for Retrieval and Recommendation";
+* Scripts for processing [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) dataset into recommendation benchmarks;
+* Checkpoints & implementations for BLaIR: "[Bridging Language and Items for Retrieval and Recommendation]()";
 * Scripts for constructing Amazon-C4, a new dataset for evaluating product search performance under complex contexts.
 
 ## Recommendation Benchmarks
 
-Based on the released Amazon Review 2023 dataset, we provide scripts to preprocess raw data into standard train/validation/test splits to encourage benchmarking recommendation models.
+Based on the released Amazon Reviews 2023 dataset, we provide scripts to preprocess raw data into standard train/validation/test splits to encourage benchmarking recommendation models.
 
 **More details here ->** [[datasets & processing scripts]](benchmark_scripts/README.md)
 
 ## BLaIR
 
-BLaIR, which is short for "**B**ridging **La**nguage and **I**tems for **R**etrieval and **R**ecommendation", is a series of language models pre-trained on Amazon Review 2023 dataset.
+BLaIR, which is short for "**B**ridging **La**nguage and **I**tems for **R**etrieval and **R**ecommendation", is a series of language models pre-trained on Amazon Reviews 2023 dataset.
 
 <center>
     <img src="assets/blair.png" style="width: 75%;">
@@ -23,7 +27,8 @@ BLaIR is grounded on pairs of *(item metadata, language context)*, enabling the 
 * derive strong item text representations, for both recommendation and retrieval;
 * predict the most relevant item given simple / complex language context.
 
-**More details here ->** [[checkpoints & code]](blair/README.md)
+<!-- **More details here ->** [[checkpoints & code]](blair/README.md) -->
+**More details will be available in one week.**
 
 ## Amazon-C4
 
@@ -35,20 +40,21 @@ Amazon-C4, which is short for "**C**omplex **C**ontexts **C**reated by **C**hatG
 
 Amazon-C4 is designed to assess a model’s ability to comprehend complex language contexts and retrieve relevant items.
 
-**More details here ->** [[datasets & processing scripts]](blair/README.md)
+<!-- **More details here ->** [[datasets & processing scripts]](blair/README.md) -->
+**More details will be available in one week.**
 
 ## Contact
 
-Please let us know if you encounter a bug or have any suggestions/questions by [filling an issue](https://github.com/hyp1231/AmazonReview2023/issues) or emailing Yupeng Hou ([@hyp1231](https://github.com/hyp1231)) at [yphou@ucsd.edu](mailto:yphou@ucsd.edu).
+Please let us know if you encounter a bug or have any suggestions/questions by [filling an issue](https://github.com/hyp1231/AmazonReview2023/issues/new) or emailing Yupeng Hou ([@hyp1231](https://github.com/hyp1231)) at [yphou@ucsd.edu](mailto:yphou@ucsd.edu).
 
 ## Acknowledgement
 
-If you find Amazon Review 2023 dataset, BLaIR checkpoints, Amazon-C4 dataset, or our scripts/code helpful, please cite the following paper.
+If you find Amazon Reviews 2023 dataset, BLaIR checkpoints, Amazon-C4 dataset, or our scripts/code helpful, please cite the following paper.
 
 ```bibtex
-@article{li2024blair,
+@article{hou2024bridging,
   title={Bridging Language and Items for Retrieval and Recommendation},
-  author={Li, Jiacheng and Hou, Yupeng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
+  author={Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
   journal={arXiv preprint arXiv:xxxx.xxxxx},
   year={2024}
 }

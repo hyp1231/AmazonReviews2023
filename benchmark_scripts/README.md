@@ -1,6 +1,6 @@
 # Benchmark Scripts
 
-Based on the released Amazon Review 2023 dataset, we provide scripts to preprocess raw data into standard train/validation/test splits to encourage benchmarking recommendation models.
+Based on the released Amazon Reviews 2023 dataset, we provide scripts to preprocess raw data into standard train/validation/test splits to encourage benchmarking recommendation models.
 
 🚀 Quick Jumps -> [[Structures](#structures)] · [[Raw Data -> rating_only](#raw-data---rating_only)] · [[rating_only -> last_out](#rating_only---last_out)]
 
@@ -44,7 +44,12 @@ python kcore_filtering.py -k 5
 `benchmark_files/5core/rating_only/Toys_and_Games.csv`
 
 ```
-
+user_id,parent_asin,rating,timestamp
+AGKASBHYZPGTEPO6LWZPVJWB2BVA,B006GBITXC,3.0,1452647382000
+AGKASBHYZPGTEPO6LWZPVJWB2BVA,B00TLEMSVK,4.0,1454675785000
+AGKASBHYZPGTEPO6LWZPVJWB2BVA,B00SO7HF6I,3.0,1454676014000
+AGKASBHYZPGTEPO6LWZPVJWB2BVA,B00MZG6OO8,3.0,1471541996000
+AGKASBHYZPGTEPO6LWZPVJWB2BVA,B007JWWUDW,5.0,1471542588000
 ```
 
 ## rating_only -> last_out
