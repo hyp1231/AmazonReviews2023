@@ -2,6 +2,8 @@
 
 Based on the released Amazon Reviews 2023 dataset, we provide scripts to preprocess raw data into standard train/validation/test splits to encourage benchmarking recommendation models.
 
+The prosessed datasets can be found at [[🌐 Website 0-Core](https://amazon-reviews-2023.github.io/data_processing/0core.html#statistics)] · [[🌐 Website 5-Core](https://amazon-reviews-2023.github.io/data_processing/5core.html#statistics)] · [[🤗 Huggingface Datasets](https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023)]
+
 🚀 Quick Jumps -> [[Structures](#structures)] · [[Raw Data -> rating_only](#raw-data---rating_only)] · [[rating_only -> last_out](#rating_only---last_out)]
 
 ## Structures
