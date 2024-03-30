@@ -70,17 +70,20 @@ python last_out_split.py
 
 ## rating_only -> timestamp
 
-`timestamp` is short for "data split by timestamps". The files are based on `rating_only`. We further split the reviews into training set, validation set, and test set based on the timestamps of each review.
+`timestamp` is short for "data split by timestamps". The files are based on `rating_only`.
 
-**Preprocessing**
+**Why split by absolute timestamps?** Recommender systems in the real world only access interactions that occurred before a specific timestamp, and aim to predict future interactions. This strategy aligns with real-world scenarios but is not widely used in research. Researchers are encouraged to experiment with this splitting strategy.
 
-To simulate a more realistic evaluation for recommender systems, we split the reviews according to timestamps. Specifically, we setup two timestamps as the intervals that roughly split all the reviews by 8:1:1.
+**How we choose the timestamps to split?** To be specific, we find two timestamps and split **all the reviews from Amazon Reviews 2023 dataset** in a ratio of 8 : 1 : 1 into training, validation, and test sets. These two timestamps should be used to split data for both pretraining and all downstream evaluation tasks.
 
-* Training set: < 1628643414042
-* Validation set: < 1658002729837, >= 1628643414042
-* Test set: >= 1658002729837
+**How do we split?** Specially, given a chronological user interaction sequence:
+* **Training set**: item interactions with timestamp range (-∞, t_1);
+* **Validation set**: item interactions with timestamp range [t_1, t_2);
+* **Test set**: item interactions with timestamp range [t_2, +∞).
 
-Note that for each domain, we use the same timestamp to split. Although this strategies may make data splits in different domains have different split ratios, the merit is to be more close to the real recommendation scenarios.
+where t_1 = 1628643414042, t_2 = 1658002729837.
+
+> Note that for each domain, we use the same timestamp to split. Although this strategies may make data splits in different domains have different split ratios, the merit is to be more close to the real recommendation scenarios.
 
 The data format is the same as `rating_only`.
 
