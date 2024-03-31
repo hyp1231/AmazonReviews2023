@@ -27,8 +27,7 @@ BLaIR is grounded on pairs of *(item metadata, language context)*, enabling the 
 * derive strong item text representations, for both recommendation and retrieval;
 * predict the most relevant item given simple / complex language context.
 
-<!-- **More details here ->** [[checkpoints & code]](blair/README.md) -->
-**More details will be available in one week.**
+**More details here ->** [[checkpoints & code]](blair/README.md)
 
 ## Amazon-C4
 
@@ -41,7 +40,7 @@ Amazon-C4, which is short for "**C**omplex **C**ontexts **C**reated by **C**hatG
 Amazon-C4 is designed to assess a model’s ability to comprehend complex language contexts and retrieve relevant items.
 
 <!-- **More details here ->** [[datasets & processing scripts]](blair/README.md) -->
-**More details will be available in one week.**
+**More details are coming soon.**
 
 ## Contact
 
