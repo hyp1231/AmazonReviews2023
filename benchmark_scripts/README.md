@@ -20,8 +20,8 @@ benchmark_files/        # deduplicate reviews
 │   │   ├── Toys_and_Games.valid.csv
 │   │   └── Toys_and_Games.test.csv
 │   ├── timestamp/      # split by timestamps
-│   ├── last_out_seq/   # convenient for sequential rec
-│   └── timestamp_seq/
+│   ├── last_out_w_his/ # convenient for sequential rec
+│   └── timestamp_w_his/
 └── 0core/
     └── ...
 ```

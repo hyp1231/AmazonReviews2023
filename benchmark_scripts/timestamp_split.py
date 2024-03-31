@@ -12,7 +12,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_path', type=str, default='release_amazon/5core/rating_only')
     parser.add_argument('--output_path', type=str, default='release_amazon/5core/timestamp')
-    parser.add_argument('--seq_path', type=str, default='release_amazon/5core/timestamp_seq')
+    parser.add_argument('--seq_path', type=str, default='release_amazon/5core/timestamp_w_his')
     parser.add_argument('--zero', action='store_true', help='if true, will process for 0-core, else for 5-core (by default)')
     return parser.parse_args()
 
