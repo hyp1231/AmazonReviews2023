@@ -58,4 +58,36 @@ BLaIR is grounded on pairs of *(item metadata, language context)*, enabling the 
 
 [blair-roberta-base](https://huggingface.co/hyp1231/blair-roberta-base) is initialized by the parameters of [roberta-base](https://huggingface.co/FacebookAI/roberta-base). Then the model was continually pretrained on 10% of all the <review, item metadata> pairs from the [Amazon Reviews 2023 dataset](https://github.com/hyp1231/AmazonReviews2023).
 
-The training script is coming soon.
+### Requirements
+
+```
+pytorch==2.1.1
+pytorch-cuda==11.8
+python==3.9.18
+transformers==4.2.1
+```
+
+### Prepare your pretraining data
+
+```bash
+cd blair/
+python sample_pretraining_data.py
+```
+
+Note that the required datasets will be automatically downloaded from [huggingface dataset hub](https://github.com/hyp1231/AmazonReviews2023).
+
+### Train your models
+
+**blair-roberta-base**
+
+```bash
+bash base.sh
+```
+
+**blair-roberta-large**
+
+```bash
+bash large.sh
+```
+
+Our training script heavily referenced the open-source implementation of [SimCSE](https://github.com/princeton-nlp/SimCSE). We adapt it to an environment with relatively modern versions of PyTorch & HuggingFace Transformers.
