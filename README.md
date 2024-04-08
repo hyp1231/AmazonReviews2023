@@ -31,16 +31,15 @@ BLaIR is grounded on pairs of *(item metadata, language context)*, enabling the 
 
 ## Amazon-C4
 
-Amazon-C4, which is short for "**C**omplex **C**ontexts **C**reated by **C**hatGPT", is a new dataset for evaluating product search performance under complex contexts.
+Amazon-C4, which is short for "**C**omplex **C**ontexts **C**reated by **C**hatGPT", is a new dataset for the **complex product search** task.
 
 <center>
     <img src="assets/amazon-c4-example.png" style="width: 50%;">
 </center>
 
-Amazon-C4 is designed to assess a model’s ability to comprehend complex language contexts and retrieve relevant items.
+Amazon-C4 is designed to assess a model's ability to comprehend complex language contexts and retrieve relevant items.
 
-<!-- **More details here ->** [[datasets & processing scripts]](blair/README.md) -->
-**More details are coming soon.**
+**More details here ->** [[datasets & code]](amazon-c4/README.md)
 
 ## Contact
 
