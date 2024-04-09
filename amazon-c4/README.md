@@ -1,8 +1,8 @@
 # Amazon-C4
 
-[[🤗 Huggingface Hub](https://huggingface.co/datasets/hyp1231/Amazon-C4)]
+[[🤗 Huggingface Hub](https://huggingface.co/datasets/McAuley-Lab/Amazon-C4)]
 
-[Amazon-C4](https://huggingface.co/datasets/hyp1231/Amazon-C4), which is short for "**C**omplex **C**ontexts **C**reated by **C**hatGPT", is a new dataset for the **complex product search** task.
+[Amazon-C4](https://huggingface.co/datasets/McAuley-Lab/Amazon-C4), which is short for "**C**omplex **C**ontexts **C**reated by **C**hatGPT", is a new dataset for the **complex product search** task.
 
 <center>
     <img src="../assets/amazon-c4-example.png" style="width: 50%;">
@@ -14,7 +14,7 @@
 
 ```python
 from datasets import load_dataset
-dataset = load_dataset('hyp1231/Amazon-C4')['test']
+dataset = load_dataset('McAuley-Lab/Amazon-C4')['test']
 ```
 
 ```python
@@ -39,7 +39,7 @@ import json
 from huggingface_hub import hf_hub_download
 
 filepath = hf_hub_download(
-    repo_id='hyp1231/Amazon-C4',
+    repo_id='McAuley-Lab/Amazon-C4',
     filename='sampled_item_metadata_1M.jsonl',
     repo_type='dataset'
 )
@@ -130,4 +130,4 @@ number of characters in the queries, `Avg.Len.t` denotes the average number of c
 
 ### Contact
 
-Please [raise a issue here](https://github.com/hyp1231/AmazonReviews2023/issues/new) at our GitHub repo, or [start a discussion](https://huggingface.co/datasets/hyp1231/Amazon-C4/discussions/new) at the huggingface hub, or directly contact Yupeng Hou @ [yphou@ucsd.edu](mailto:yphou@ucsd.edu) if you have any questions or suggestions.
+Please [raise a issue here](https://github.com/hyp1231/AmazonReviews2023/issues/new) at our GitHub repo, or [start a discussion](https://huggingface.co/datasets/McAuley-Lab/Amazon-C4/discussions/new) at the huggingface hub, or directly contact Yupeng Hou @ [yphou@ucsd.edu](mailto:yphou@ucsd.edu) if you have any questions or suggestions.
