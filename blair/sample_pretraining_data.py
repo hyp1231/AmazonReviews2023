@@ -78,7 +78,7 @@ def concat_review(dp):
 
 
 if __name__ == '__main__':
-    all_categories = load_all_categories()[:2]
+    all_categories = load_all_categories()
 
     # Load item metadata
     for category in all_categories:
