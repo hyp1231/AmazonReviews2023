@@ -41,6 +41,11 @@ Amazon-C4 is designed to assess a model's ability to comprehend complex language
 
 **More details here ->** [[datasets & code]](amazon-c4/README.md)
 
+## Reproduction
+
+* Please refer to [seq_rec_results](seq_rec_results/README.md) for scripts that can reproduce our results on sequential recommendation.
+* Please refer to [product_search_results](product_search_results/README.md) for scripts that can reproduce our results on product search.
+
 ## Contact
 
 Please let us know if you encounter a bug or have any suggestions/questions by [filling an issue](https://github.com/hyp1231/AmazonReview2023/issues/new) or emailing Yupeng Hou ([@hyp1231](https://github.com/hyp1231)) at [yphou@ucsd.edu](mailto:yphou@ucsd.edu).
