@@ -40,7 +40,7 @@ def sentence2emb(args, order_texts, feat_name, tokenizer, model, prompt=None):
     embeddings = torch.cat(embeddings, dim=0).numpy()
     print('Embeddings shape: ', embeddings.shape)
 
-    file = os.path.join(args.output_path, args.dataset_name,
+    file = os.path.join(args.cache_path, args.dataset_name,
                         args.dataset_name + f'.{feat_name}' + args.emb_type)
     embeddings.tofile(file)
 
@@ -53,23 +53,24 @@ def generate_item_emb(args, tokenizer, model):
             filename='sampled_item_metadata_1M.jsonl',
             repo_type='dataset'
         )
-
-        with open(filepath, 'r') as file:
-            for line in file:
-                item_pool.append(json.loads(line.strip())['metadata'])
+    elif args.dataset == 'esci':
+        filepath = os.path.join(args.cache_path, 'esci/sampled_item_metadata_esci.jsonl')
     else:
         raise NotImplementedError('Dataset not supported')
+    with open(filepath, 'r') as file:
+        for line in file:
+            item_pool.append(json.loads(line.strip())['metadata'])
     sentence2emb(args, item_pool, args.feat_name, tokenizer, model)
 
 
 def generate_query_emb(args, tokenizer, model):
-    dataset = load_dataset(args.dataset)['test']
+    if args.dataset == 'McAuley-Lab/Amazon-C4':
+        dataset = load_dataset(args.dataset)['test']
+    elif args.dataset == 'esci':
+        dataset = load_dataset('csv', data_files=os.path.join(args.cache_path, 'esci/test.csv'))['train']
+    else:
+        raise NotImplementedError('Dataset not supported')
     sentence2emb(args, dataset['query'], f'q_{args.feat_name}', tokenizer, model)
-
-
-def check_path(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
 
 
 def set_device(gpu_id):
@@ -88,8 +89,8 @@ def load_plm(model_name='bert-base-uncased'):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='McAuley-Lab/Amazon-C4', help='')
-    parser.add_argument('--output_path', type=str, default='./cache/')
+    parser.add_argument('--dataset', type=str, default='McAuley-Lab/Amazon-C4', choices=['McAuley-Lab/Amazon-C4', 'esci'])
+    parser.add_argument('--cache_path', type=str, default='./cache/')
     parser.add_argument('--gpu_id', type=int, default=0, help='ID of running GPU')
     parser.add_argument('--plm_name', type=str, default='hyp1231/blair-roberta-base')
     parser.add_argument('--emb_type', type=str, default='CLS', help='item text emb type, can be CLS or Mean')
@@ -119,7 +120,10 @@ if __name__ == '__main__':
     print(plm_model)
 
     # create output dir
-    check_path(os.path.join(args.output_path, args.dataset_name))
+    os.makedirs(
+        os.path.join(args.cache_path, args.dataset_name),
+        exist_ok=True
+    )
 
     generate_item_emb(args, plm_tokenizer, plm_model)
     generate_query_emb(args, plm_tokenizer, plm_model)

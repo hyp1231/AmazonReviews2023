@@ -22,7 +22,7 @@ def set_device(gpu_id):
 def load_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--dataset', type=str, default='McAuley-Lab/Amazon-C4', help='dataset')
+    parser.add_argument('--dataset', type=str, default='McAuley-Lab/Amazon-C4', help='dataset', choices=['McAuley-Lab/Amazon-C4', 'esci'])
     parser.add_argument('--suffix', type=str, default='blair-baseCLS', help='suffix of the embs')
     parser.add_argument('-k', type=int, default=100, help='top k')
     parser.add_argument('--gpu_id', type=int, default=0, help='gpu id')
@@ -51,23 +51,31 @@ def load_items(args):
             filename='sampled_item_metadata_1M.jsonl',
             repo_type='dataset'
         )
-
-        with open(filepath, 'r') as file:
-            for idx, line in enumerate(file):
-                item = json.loads(line.strip())['item_id']
-                id2item.append(item)
-                item2id[item] = idx
-                assert len(id2item) == len(item2id)
-                assert len(id2item) == idx + 1
+    elif args.dataset == 'esci':
+        filepath = os.path.join(args.data_path, 'esci/sampled_item_metadata_esci.jsonl')
     else:
         raise NotImplementedError('Dataset not supported')
+
+    with open(filepath, 'r') as file:
+        for idx, line in enumerate(file):
+            item = json.loads(line.strip())['item_id']
+            id2item.append(item)
+            item2id[item] = idx
+            assert len(id2item) == len(item2id)
+            assert len(id2item) == idx + 1
 
     return id2item, item2id
 
 
 def load_queries(args, item2id):
     query2target = []
-    dataset = load_dataset(args.dataset)['test']
+    if args.dataset == 'McAuley-Lab/Amazon-C4':
+        dataset = load_dataset(args.dataset)['test']
+    elif args.dataset == 'esci':
+        dataset = load_dataset('csv', data_files=os.path.join(args.data_path, 'esci/test.csv'))['train']
+    else:
+        raise NotImplementedError('Dataset not supported')
+
     for target_item in dataset['item_id']:
         target_id = item2id[target_item]
         query2target.append(target_id)
