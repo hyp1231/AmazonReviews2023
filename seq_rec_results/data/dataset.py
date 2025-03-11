@@ -34,3 +34,7 @@ class UniSRecDataset(SequentialDataset):
         plm_embedding.weight.requires_grad = False
         plm_embedding.weight.data.copy_(torch.from_numpy(weight))
         return plm_embedding
+
+
+class SASRecTextDataset(UniSRecDataset):
+    pass
